@@ -8,7 +8,7 @@ export function AnimatedName() {
         href="/"
         className="flex mb-8 font-medium text-gray-400 dark:text-zinc-400"
       >
-        Lee Robinson
+        Stroe Catalin
       </Link>
     </ViewTransition>
   );

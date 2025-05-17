@@ -1,0 +1,56 @@
+import { AnimatedName } from "@/app/n/animated-name.tsx";
+import { ProjectsLayout } from "@/components/projects/ProjectsLayout";
+import { ProjectCard } from "@/components/projects/ProjectCard";
+import {
+  AlphaIcon,
+  BetaIcon,
+  GammaIcon,
+  DeltaIcon,
+} from "@/components/projects/icons";
+
+export const metadata = {
+  title: "Projects",
+  alternates: {
+    canonical: "/n/projects",
+  },
+};
+
+<ProjectsLayout>
+  # Projects
+
+{" "}
+
+<AnimatedName />
+
+Here are some of the projects I've worked on, showcasing my skills and interests in various areas of development.
+
+  <div className="grid grid-cols-1 gap-12 mt-12 max-w-xl mx-auto px-4">
+    <ProjectCard
+      title="Awesome Project Alpha"
+      description="A revolutionary platform for managing tasks and boosting productivity, built with cutting-edge technologies."
+      tech={["Next.js", "Tailwind CSS", "Supabase", "TypeScript"]}
+      link="https://example.com/alpha"
+      Icon={AlphaIcon}
+    />
+    <ProjectCard
+      title="Project Beta Showcase"
+      description="An interactive web application designed to showcase digital art and connect artists with enthusiasts."
+      tech={["React", "Firebase", "Framer Motion"]}
+      link="https://example.com/beta"
+      Icon={BetaIcon}
+    />
+    <ProjectCard
+      title="Gamma Initiative"
+      description="An open-source tool for developers to streamline their workflow and automate repetitive tasks."
+      tech={["Python", "Docker", "FastAPI"]}
+      Icon={GammaIcon}
+    />
+    <ProjectCard
+      title="Delta Data Visualizer"
+      description="A web app that turns complex datasets into beautiful and understandable visualizations."
+      tech={["D3.js", "SvelteKit", "PostgreSQL"]}
+      link="https://example.com/delta"
+      Icon={DeltaIcon}
+    />
+  </div>
+</ProjectsLayout>
