@@ -11,7 +11,6 @@ import {
     MobileNavToggle,
     MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 import TrueFocus from "@/components/ui/true-focus";
 
@@ -159,7 +158,7 @@ export function NavBar() {
 const TitleContainer = () => {
     return (
         <div className="container mx-auto p-8 pt-24 text-orange-400">
-            <TrueFocus manualMode={true} sentence="La Doi Pasi de IT devlog" />
+            <TrueFocus manualMode={false} sentence="La Doi Pasi de IT devlog" />
         </div>
     );
 };

@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface Token {
   text: string;
@@ -125,7 +125,7 @@ export function Tokenization() {
               transition={{ delay: index * 0.1 }}
               className="border-2 border-blue-600 rounded p-2 text-2xl md:text-xl font-mono text-gray-800"
             >
-              {token}
+              {typeof token === 'string' ? token : token.text}
             </motion.div>
           ))}
         </motion.div>
@@ -280,11 +280,10 @@ export function Tokenization() {
         {[0.5, 1, 1.5, 2].map((s) => (
           <button
             key={`speed-${s}`}
-            className={`px-2 py-1 text-xs rounded ${
-              speed === s
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 text-gray-800'
-            } hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-400`}
+            className={`px-2 py-1 text-xs rounded ${speed === s
+              ? 'bg-blue-600 text-white'
+              : 'bg-gray-200 text-gray-800'
+              } hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-400`}
             onClick={() => setSpeed(s)}
           >
             {s}x

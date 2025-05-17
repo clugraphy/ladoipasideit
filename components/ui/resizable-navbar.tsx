@@ -135,7 +135,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           {hovered === idx && (
             <motion.div
               layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="absolute inset-0 h-full w-full rounded-full bg-orange-400 dark:bg-orange-400"
             />
           )}
           <span className="relative z-20">{item.name}</span>
@@ -233,16 +233,44 @@ export const MobileNavToggle = ({
 export const NavbarLogo = () => {
   return (
     <a
-      href="#"
+      href="/"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
+      {/* TODO: Change this to the logo of the company */}
       <img
         src="https://assets.aceternity.com/logo-dark.png"
         alt="logo"
         width={30}
         height={30}
       />
-      <span className="font-medium text-black dark:text-white">Startup</span>
+      <span className="sr-only">La Doi Pasi de IT</span>
+      <span
+        aria-hidden="true"
+        className="block overflow-hidden group relative"
+      >
+        <span className="inline-block transition-transform duration-500 ease-out group-hover:-translate-y-full whitespace-nowrap">
+          {'La Doi Pasi de IT'.split('').map((letter, index) => (
+            <span
+              key={index}
+              className="inline-block transition-all duration-300 ease-linear opacity-100 group-hover:opacity-0 group-hover:translate-y-3 font-medium text-black dark:text-white"
+              style={{ transitionDelay: `${index * 25}ms` }}
+            >
+              {letter === ' ' ? ' ' : letter}
+            </span>
+          ))}
+        </span>
+        <span className="inline-block absolute left-0 top-0 transition-transform duration-500 ease-out translate-y-full group-hover:translate-y-0">
+          {'LDPIT'.split('').map((letter, index) => (
+            <span
+              key={index}
+              className="inline-block transition-all duration-300 ease-linear opacity-0 -translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 font-medium text-black dark:text-white"
+              style={{ transitionDelay: `${index * 25}ms` }}
+            >
+              {letter}
+            </span>
+          ))}
+        </span>
+      </span>
     </a>
   );
 };

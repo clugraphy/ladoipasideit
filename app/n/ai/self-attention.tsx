@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface Token {
   text: string;
@@ -103,11 +103,10 @@ export function SelfAttention() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: index * 0.05 }}
-                className={`text-lg md:text-base font-mono mb-2 border-2 rounded p-1 ${
-                  token.attention[currentStep - 1] > 0
+                className={`text-lg md:text-base font-mono mb-2 border-2 rounded p-1 ${token.attention[currentStep - 1] > 0
                     ? 'border-blue-600'
                     : 'border-gray-300'
-                }`}
+                  }`}
                 style={{
                   backgroundColor: `rgba(59, 130, 246, ${Math.pow(token.attention[currentStep - 1], 0.5)})`,
                 }}
@@ -199,11 +198,10 @@ export function SelfAttention() {
         {[0.5, 1, 1.5, 2].map((s) => (
           <button
             key={`speed-${s}`}
-            className={`px-2 py-1 text-xs rounded ${
-              speed === s
+            className={`px-2 py-1 text-xs rounded ${speed === s
                 ? 'bg-blue-600 text-white'
                 : 'bg-gray-200 text-gray-800'
-            } hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-400`}
+              } hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-400`}
             onClick={() => setSpeed(s)}
           >
             {s}x

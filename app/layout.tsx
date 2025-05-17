@@ -3,9 +3,10 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 // import { Analytics } from '@vercel/analytics/react';
 import { unstable_ViewTransition as ViewTransition } from 'react';
-import Header from './header';
-import Link from 'next/link';
 import { NavBar } from './components/NavBar';
+import { TvNoiseTransition } from './components/CrackedScreenTransition';
+import LetterGlitch from '@/components/ui/letter-glitch';
+import { BackgroundLines } from '@/components/ui/background-lines';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     default: 'La Doi Pasi de IT',
     template: '%s | La Doi Pasi de IT'
   },
-  description: 'Frontend developer, optimist, community builder.'
+  description: 'Full Stack Developer, La Doi Pasi de IT, travelling in my spare time.'
 };
 
 export default function RootLayout({
@@ -28,17 +29,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.className}`}>
-
-      {/* <Header /> */}
-      <NavBar />
       <body className="antialiased tracking-tight">
-        <div className="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-8 dark:bg-zinc-950 bg-white text-gray-900 dark:text-zinc-200">
+        <NavBar />
+        <div className="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-8 bg-black text-zinc-200">
           <main className="max-w-[60ch] mx-auto w-full space-y-6">
-            <ViewTransition name="test">{children}</ViewTransition>
+            <BackgroundLines >
+
+              <TvNoiseTransition>
+                <ViewTransition name="test">{children}</ViewTransition>
+              </TvNoiseTransition>
+            </BackgroundLines>
+
           </main>
           <Footer />
           {/* <Analytics /> */}
         </div>
+
       </body>
     </html>
   );

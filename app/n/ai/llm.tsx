@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 
 const networkStructure = {
   inputNodes: ['San', 'Francisco', 'is', 'a'],
@@ -71,34 +71,34 @@ export function LLM() {
         // Add input node
         if (step >= 1) {
           newActiveNodes.push(
-            `input-${networkStructure.inputNodes[currentWordIndex]}`
+            `input-${networkStructure.inputNodes[currentWordIndex]}` as never
           );
         }
 
         // Add hidden layer 1 nodes and connections
         if (step >= 2) {
           networkStructure.hiddenLayers[0].forEach((_, i) => {
-            newActiveNodes.push(`hidden1-${i}`);
-            newActiveConnections.push(`input-hidden1-${i}`);
+            newActiveNodes.push(`hidden1-${i}` as never);
+            newActiveConnections.push(`input-hidden1-${i}` as never);
           });
         }
 
         // Add hidden layer 2 nodes and connections
         if (step >= 3) {
           networkStructure.hiddenLayers[1].forEach((_, i) => {
-            newActiveNodes.push(`hidden2-${i}`);
-            newActiveConnections.push(`hidden1-hidden2-${i}`);
+            newActiveNodes.push(`hidden2-${i}` as never);
+            newActiveConnections.push(`hidden1-hidden2-${i}` as never);
           });
         }
 
         // Add hidden layer 3 nodes and connections
         if (step >= 4) {
           networkStructure.hiddenLayers[2].forEach((_, i) => {
-            newActiveNodes.push(`hidden3-${i}`);
-            newActiveConnections.push(`hidden2-hidden3-${i}`);
+            newActiveNodes.push(`hidden3-${i}` as never);
+            newActiveConnections.push(`hidden2-hidden3-${i}` as never);
           });
-          newActiveNodes.push('output');
-          newActiveConnections.push('hidden3-output');
+          newActiveNodes.push('output' as never);
+          newActiveConnections.push('hidden3-output' as never);
           setConfidence(95 - currentWordIndex * 5);
           setSentence((prev) => {
             const newSentence = [
@@ -143,9 +143,8 @@ export function LLM() {
         viewBox={`0 0 580 ${canvasHeight}`}
       >
         <g
-          transform={`scale(${scale}) translate(${
-            ((1 - scale) * canvasWidth) / 2 / scale
-          }, ${((1 - scale) * canvasHeight) / 2 / scale})`}
+          transform={`scale(${scale}) translate(${((1 - scale) * canvasWidth) / 2 / scale
+            }, ${((1 - scale) * canvasHeight) / 2 / scale})`}
         >
           {/* Render all connections first */}
           {networkStructure.hiddenLayers[0].map((_, hiddenIdx) => {
