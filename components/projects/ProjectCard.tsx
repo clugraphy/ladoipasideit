@@ -25,14 +25,15 @@ export function ProjectCard({ title, description, tech, link, Icon }: ProjectCar
             }}
             className="aspect-square relative p-6 rounded-lg shadow-lg transition-all
                       bg-gradient-to-br from-yellow-100 to-yellow-200 
+                      dark:from-white/90 dark:to-white/95
                       before:content-[''] before:absolute before:top-0 before:left-[50%] 
                       before:w-[40%] before:h-[30px] before:-translate-x-1/2 before:-translate-y-[10px]
-                      before:bg-yellow-200/80 before:rounded-t-lg before:shadow-md
+                      before:bg-yellow-200/80 dark:before:bg-white/80 before:rounded-t-lg before:shadow-md
                       flex flex-col"
         >
             <div className="flex-1 overflow-auto">
                 {Icon && (
-                    <div className="mb-4 text-neutral-700">
+                    <div className="mb-4 text-neutral-700 dark:text-neutral-600">
                         <ProjectIcon icon={Icon} />
                     </div>
                 )}
@@ -41,7 +42,7 @@ export function ProjectCard({ title, description, tech, link, Icon }: ProjectCar
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3, duration: 0.5 }}
-                    className="text-xl font-semibold mb-3 text-neutral-800"
+                    className="text-xl font-semibold mb-3 text-neutral-800 dark:text-neutral-700"
                 >
                     {title}
                 </motion.h3>
@@ -50,7 +51,7 @@ export function ProjectCard({ title, description, tech, link, Icon }: ProjectCar
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.4, duration: 0.5 }}
-                    className="text-neutral-700 mb-4 text-sm line-clamp-4"
+                    className="text-neutral-700 dark:text-neutral-600 mb-4 text-sm line-clamp-4"
                 >
                     {description}
                 </motion.p>
@@ -70,7 +71,7 @@ export function ProjectCard({ title, description, tech, link, Icon }: ProjectCar
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: 0.6 + index * 0.1, duration: 0.3 }}
-                                    className="inline-block bg-yellow-300/50 text-neutral-700 
+                                    className="inline-block bg-yellow-300/50 dark:bg-neutral-200/50 text-neutral-700 dark:text-neutral-600
                                              text-xs px-2 py-1 rounded-full"
                                 >
                                     {t}
@@ -81,7 +82,7 @@ export function ProjectCard({ title, description, tech, link, Icon }: ProjectCar
                 )}
             </div>
             {link && (
-                <div className="mt-auto pt-3 border-t border-yellow-300/50">
+                <div className="mt-auto pt-3 border-t border-yellow-300/50 dark:border-neutral-200/50">
                     <motion.a
                         href={link}
                         target="_blank"
@@ -90,7 +91,7 @@ export function ProjectCard({ title, description, tech, link, Icon }: ProjectCar
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.7, duration: 0.5 }}
-                        className="text-neutral-700 text-sm inline-flex items-center
+                        className="text-neutral-700 dark:text-neutral-600 text-sm inline-flex items-center
                                  relative overflow-hidden group"
                     >
                         <span className="relative z-10 pr-2">View Project</span>

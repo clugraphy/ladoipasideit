@@ -1,10 +1,10 @@
-import { AnimatedName } from '@/app/n/animated-name.tsx';
+import { AnimatedName } from "@/app/n/animated-name.tsx";
 
 export const metadata = {
-  title: 'Work',
+  title: "Work",
   alternates: {
-    canonical: '/n/work'
-  }
+    canonical: "/n/work",
+  },
 };
 
 export function Small({ children }) {
@@ -13,7 +13,17 @@ export function Small({ children }) {
   );
 }
 
-# Work
+export function Large({ children }) {
+  return (
+    <large className="flex text-xl text-orange-400 -mt-3 mb-3">
+      {children}
+    </large>
+  );
+}
+
+# Work2
+
+<Large># Work </Large>
 
 <AnimatedName />
 
