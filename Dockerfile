@@ -22,6 +22,9 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Ensure public directory exists in builder stage
+RUN mkdir -p public
+
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during the build.
@@ -45,10 +48,10 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 # Create necessary directories with proper permissions
-RUN mkdir -p public .next
-RUN chown nextjs:nodejs public .next
+RUN mkdir -p .next
+RUN chown nextjs:nodejs .next
 
-# Copy public directory first
+# Copy the public directory (will be created if it doesn't exist)
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
 # Automatically leverage output traces to reduce image size
