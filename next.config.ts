@@ -9,6 +9,11 @@ export const sql = postgres(process.env.POSTGRES_URL!, {
 const nextConfig: NextConfig = {
   pageExtensions: ['mdx', 'ts', 'tsx'],
   output: 'standalone',
+  experimental: {
+    mdxRs: true,
+    viewTransition: true
+  },
+  outputFileTracingRoot: undefined,
   async redirects() {
     if (!process.env.POSTGRES_URL) {
       return [];
@@ -24,12 +29,6 @@ const nextConfig: NextConfig = {
       destination,
       permanent: !!permanent
     }));
-  },
-  // Note: Using the Rust compiler means we cannot use
-  // rehype or remark plugins. For my app, this is fine.
-  experimental: {
-    mdxRs: true,
-    viewTransition: true
   }
 };
 
