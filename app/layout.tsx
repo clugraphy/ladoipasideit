@@ -28,10 +28,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.className} h-full`}>
-      <body className="antialiased tracking-tight min-h-full flex flex-col">
+    <html lang="en" className={`${inter.className} h-full dark`} suppressHydrationWarning>
+      <body className="antialiased tracking-tight min-h-full flex flex-col bg-background text-foreground">
         <NavBar />
-        <div className="flex-1 flex flex-col bg-black text-zinc-200">
+        <div className="flex-1 flex flex-col">
           <main className="flex-1 max-w-[60ch] mx-auto w-full space-y-6 p-8">
             <BackgroundLines>
               <TvNoiseTransition>

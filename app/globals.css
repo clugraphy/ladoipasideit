@@ -17,7 +17,7 @@
   --sh-property: #73daca;
   --sh-entity: #e0af68;
   --radius: 0px;
-  /* La Doi Pasi Light Mode Colors */
+  /* La Doi Pasi Colors */
   --color-green-light: #A8D08D;
   --color-green-dark: #548235;
   --color-orange: #F7941D;
@@ -25,39 +25,39 @@
   --color-light-gray: #F2F2F2;
   --color-black: #000000;
   
-  /* Light Mode Theme */
-  --background: var(--color-white);
-  --foreground: var(--color-black);
+  /* Dark Theme as Default */
+  --background: var(--color-black);
+  --foreground: var(--color-white);
   --card: var(--color-light-gray);
   --card-foreground: var(--color-black);
-  --popover: var(--color-white);
-  --popover-foreground: var(--color-black);
-  --primary: var(--color-green-dark);
-  --primary-foreground: var(--color-white);
-  --secondary: var(--color-green-light);
-  --secondary-foreground: var(--color-green-dark);
+  --popover: var(--color-black);
+  --popover-foreground: var(--color-white);
+  --primary: var(--color-green-light);
+  --primary-foreground: var(--color-black);
+  --secondary: var(--color-green-dark);
+  --secondary-foreground: var(--color-white);
   --muted: var(--color-light-gray);
-  --muted-foreground: var(--color-green-dark);
+  --muted-foreground: var(--color-black);
   --accent: var(--color-orange);
-  --accent-foreground: var(--color-white);
-  --destructive: var(--color-black);
-  --border: var(--color-green-dark);
-  --input: var(--color-green-dark);
-  --ring: var(--color-green-dark);
+  --accent-foreground: var(--color-black);
+  --destructive: var(--color-white);
+  --border: var(--color-green-light);
+  --input: var(--color-green-light);
+  --ring: var(--color-green-light);
   --chart-1: var(--color-green-dark);
   --chart-2: var(--color-green-light);
   --chart-3: var(--color-orange);
   --chart-4: var(--color-green-dark);
   --chart-5: var(--color-green-light);
-  --sidebar: var(--color-light-gray);
-  --sidebar-foreground: var(--color-black);
+  --sidebar: var(--color-black);
+  --sidebar-foreground: var(--color-white);
   --sidebar-primary: var(--color-green-dark);
   --sidebar-primary-foreground: var(--color-white);
   --sidebar-accent: var(--color-orange);
   --sidebar-accent-foreground: var(--color-white);
   --sidebar-border: var(--color-green-dark);
   --sidebar-ring: var(--color-green-dark);
-  --destructive-foreground: var(--color-white);
+  --destructive-foreground: var(--color-black);
   --font-sans: DM Sans, sans-serif;
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: Space Mono, monospace;
@@ -350,68 +350,17 @@ table {
   --color-destructive-foreground: var(--destructive-foreground);
 }
 
+/* We keep .dark for compatibility but it's redundant now */
 .dark {
-  --background: oklch(0 0 0);
-  --foreground: oklch(1.00 0 0);
-  --card: oklch(0.32 0 0);
-  --card-foreground: oklch(1.00 0 0);
-  --popover: oklch(0.32 0 0);
-  --popover-foreground: oklch(1.00 0 0);
-  --primary: oklch(0.70 0.19 23.19);
-  --primary-foreground: oklch(0 0 0);
-  --secondary: oklch(0.97 0.20 109.62);
-  --secondary-foreground: oklch(0 0 0);
-  --muted: oklch(0.32 0 0);
-  --muted-foreground: oklch(0.85 0 0);
-  --accent: oklch(0.68 0.18 252.26);
-  --accent-foreground: oklch(0 0 0);
-  --destructive: oklch(1.00 0 0);
-  --border: oklch(1.00 0 0);
-  --input: oklch(1.00 0 0);
-  --ring: oklch(0.70 0.19 23.19);
-  --chart-1: oklch(0.70 0.19 23.19);
-  --chart-2: oklch(0.97 0.20 109.62);
-  --chart-3: oklch(0.68 0.18 252.26);
-  --chart-4: oklch(0.74 0.23 142.85);
-  --chart-5: oklch(0.61 0.25 328.07);
-  --sidebar: oklch(0 0 0);
-  --sidebar-foreground: oklch(1.00 0 0);
-  --sidebar-primary: oklch(0.70 0.19 23.19);
-  --sidebar-primary-foreground: oklch(0 0 0);
-  --sidebar-accent: oklch(0.68 0.18 252.26);
-  --sidebar-accent-foreground: oklch(0 0 0);
-  --sidebar-border: oklch(1.00 0 0);
-  --sidebar-ring: oklch(0.70 0.19 23.19);
-  --destructive-foreground: oklch(0 0 0);
-  --radius: 0px;
-  --font-sans: DM Sans, sans-serif;
-  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: Space Mono, monospace;
-  --shadow-color: hsl(0 0% 0%);
-  --shadow-opacity: 1;
-  --shadow-blur: 0px;
-  --shadow-spread: 0px;
-  --shadow-offset-x: 4px;
-  --shadow-offset-y: 4px;
-  --letter-spacing: 0em;
-  --spacing: 0.25rem;
-  --shadow-2xs: 4px 4px 0px 0px hsl(0 0% 0% / 0.50);
-  --shadow-xs: 4px 4px 0px 0px hsl(0 0% 0% / 0.50);
-  --shadow-sm: 4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 1px 2px -1px hsl(0 0% 0% / 1.00);
-  --shadow: 4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 1px 2px -1px hsl(0 0% 0% / 1.00);
-  --shadow-md: 4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 2px 4px -1px hsl(0 0% 0% / 1.00);
-  --shadow-lg: 4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 4px 6px -1px hsl(0 0% 0% / 1.00);
-  --shadow-xl: 4px 4px 0px 0px hsl(0 0% 0% / 1.00), 4px 8px 10px -1px hsl(0 0% 0% / 1.00);
-  --shadow-2xl: 4px 4px 0px 0px hsl(0 0% 0% / 2.50);
+  /* Dark theme variables are already set in :root */
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
-    letter-spacing: var(--tracking-normal);
   }
 }
 

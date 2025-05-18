@@ -1,8 +1,40 @@
 import { NameTransition } from "./name";
+import ImageDisplay from "./components/ImageDisplay";
+import { CodeBlock } from "./components/CodeBlock";
+import Image from "next/image";
 
 <NameTransition />
 
 Sunt full stack developer și îmi place să dezvolt aplicații și tool-uri, automatizări. Lucrez La Doi Pași - Aladin, un magazin cu capital românesc. Folosesc programarea și mai nou A.I. pentru afacerea mea.
+
+<ImageDisplay>
+  <Image
+    src="/images/opengraph-image.png"
+    alt="Development Workspace"
+    width={700}
+    height={400}
+    className="object-cover"
+  />
+</ImageDisplay>
+
+## Example Code
+
+Here's how to use the new ImageDisplay component:
+
+<CodeBlock
+  code={`import ImageDisplay from "./components/ImageDisplay";
+import Image from "next/image";
+
+<ImageDisplay>
+  <Image
+    src="/your-image.jpg"
+    alt="Your image"
+    width={700}
+    height={400}
+    className="object-cover"
+  />
+</ImageDisplay>
+`} language="jsx" />
 
 ## Dev Log
 
@@ -12,9 +44,9 @@ Sunt full stack developer și îmi place să dezvolt aplicații și tool-uri, au
 
 ## Code
 
-- [next-saas-starter](https://github.com/leerob/next-saas-starter)
-- [next-email-client](https://github.com/leerob/next-email-client)
-- [next-music-player](https://github.com/leerob/next-music-player)
+- [next-saas-starter](https://github.com/clugraphy/next-saas-starter)
+- [next-email-client](https://github.com/clugraphy/next-email-client)
+- [next-music-player](https://github.com/clugraphy/next-music-player)
 
 ## work
 

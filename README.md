@@ -1,6 +1,44 @@
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcatalin-stroe%2Fsite)
 
-# Personal Website
+# La Doi Pasi de IT Website
+
+This is the repository for my personal website, La Doi Pasi de IT.
+
+## Image Display Component
+
+The website includes an ImageDisplay component that can be used in MDX files to display images with proper styling. To use it:
+
+```jsx
+import ImageDisplay from "./components/ImageDisplay";
+import Image from "next/image";
+
+<ImageDisplay>
+  <Image
+    src="/images/your-image.jpg"
+    alt="Your image description"
+    width={700}
+    height={400}
+    className="object-cover"
+  />
+</ImageDisplay>;
+```
+
+Make sure to add your images to the `/public/images/` directory.
+
+## Getting Started
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+
+# Build for production
+pnpm build
+```
+
+## Personal Website
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Deployment**: [Vercel](https://vercel.com)
