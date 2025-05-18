@@ -39,9 +39,8 @@ export default function RootLayout({
               </TvNoiseTransition>
             </BackgroundLines>
           </main>
-          <Footer />
         </div>
-        {/* <Analytics /> */}
+        <Footer />
       </body>
     </html>
   );
