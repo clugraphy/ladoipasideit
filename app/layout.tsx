@@ -28,23 +28,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.className}`}>
-      <body className="antialiased tracking-tight">
+    <html lang="en" className={`${inter.className} h-full`}>
+      <body className="antialiased tracking-tight min-h-full flex flex-col">
         <NavBar />
-        <div className="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-8 bg-black text-zinc-200">
-          <main className="max-w-[60ch] mx-auto w-full space-y-6">
-            <BackgroundLines >
-
+        <div className="flex-1 flex flex-col bg-black text-zinc-200">
+          <main className="flex-1 max-w-[60ch] mx-auto w-full space-y-6 p-8">
+            <BackgroundLines>
               <TvNoiseTransition>
                 <ViewTransition name="test">{children}</ViewTransition>
               </TvNoiseTransition>
             </BackgroundLines>
-
           </main>
           <Footer />
-          {/* <Analytics /> */}
         </div>
-
+        {/* <Analytics /> */}
       </body>
     </html>
   );

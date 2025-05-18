@@ -1,13 +1,14 @@
-import { AnimatedName } from "../animated-name.tsx";
+import { AnimatedName } from "../components/animated-name.tsx";
+import { BlogMeta } from "../components/BlogComponents";
 
 export const metadata = {
-  title: "First post",
-  alternates: {
-    canonical: "/b/first-post",
-  },
+  title: "Prima postare este cea mai grea",
+  date: "2025-05-17",
+  author: "Alexandru Cătălin Stroe",
+  tags: ["first-post", "intro", "thoughts"],
 };
 
-# Prima postare este cea mai grea
+<BlogMeta {...metadata} />
 
 <AnimatedName />
 

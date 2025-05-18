@@ -1,0 +1,68 @@
+import { AnimatedName } from "../components/animated-name.tsx";
+import { BlogMeta } from "../components/BlogComponents";
+
+export function BlogTitle({ children }) {
+  return (
+    <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+      {children}
+    </h1>
+  );
+}
+
+export function BlogDate({ children }) {
+  return (
+    <time className="text-sm text-gray-600 dark:text-gray-400">{children}</time>
+  );
+}
+
+export function BlogAuthor({ children }) {
+  return (
+    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+      {children}
+    </span>
+  );
+}
+
+export function BlogTags({ tags }) {
+  return (
+    <div className="flex flex-wrap gap-2 mt-2">
+      {tags.map((tag) => (
+        <span
+          key={tag}
+          className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full"
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+export const metadata = {
+  title: "Devlog #1 – Cine sunt și de ce scriu",
+  date: "2025-05-18",
+  author: "Alexandru Cătălin Stroe",
+  tags: ["devlog", "intro", "self-learner", "tech"],
+};
+
+<BlogMeta {...metadata} />
+
+<AnimatedName />
+
+# Devlog #1 – Cine sunt și de ce scriu
+
+Salut! Eu sunt **Alexandru Cătălin Stroe**, născut pe 1 iulie 1990.  
+Sunt pasionat de tehnologie de când mă știu și, chiar dacă nu am urmat o facultate în domeniu, am ajuns **programator self-learner** prin autodisciplină, curiozitate și ore întregi petrecute explorând idei și proiecte. Îmi place să învăț constant și să construiesc lucruri care îmbină logica cu creativitatea si interactivitatea.
+
+Acesta este primul meu **devlog** și mi se pare important să-l încep prin a pune contextul: scriu pentru că simt nevoia să așez undeva gândurile și progresul meu între două lumi care-mi definesc prezentul.
+
+Pe de o parte, e pasiunea mea pentru **tehnologie și development** – ceea ce mă motivează, mă provoacă și îmi dă energie.
+
+Pe de altă parte, e **implicarea în business-ul familiei** – o activitate care îmi ocupă o mare parte din timp.  
+Deși nu este o pasiune, recunosc că are un avantaj important: îmi oferă un program flexibil, care îmi permite să învăț și să experimentez în tech.  
+Dar, paradoxal, această flexibilitate a venit cu un cost: mi-a dat peste cap noțiunea de structură și m-a făcut să-mi pierd uneori ritmul.
+
+> Acest devlog va fi, deci, locul unde cele două lumi se întâlnesc.  
+> Aici voi documenta progresul meu tehnic, ideile la care lucrez, obstacolele (inclusiv cele mentale), și modul în care încerc să creez un echilibru între muncă și dezvoltare personală prin tehnologie.
+
+> Dacă ai ajuns aici și rezonezi cu ce scriu, rămâi pe aproape. Urmează proiecte, idei și lecții din viața unui programator self-learner prins între realitate și pasiune.

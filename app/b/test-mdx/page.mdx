@@ -1,7 +1,51 @@
+import { AnimatedName } from "../components/animated-name.tsx";
+import { BlogMeta } from "../components/BlogComponents";
 import { HighwayJourney } from "./llm-copy.tsx";
 
-# LLMs and AIs and me late night.
+export const metadata = {
+  title: "Evaluarea Modelelor de Limbaj (LLM)",
+  date: "2024-03-19",
+  author: "Alexandru Cătălin Stroe",
+  tags: ["llm", "testing", "ai", "evaluare"],
+};
 
-Testomg the llm
+<BlogMeta {...metadata} />
+
+<AnimatedName />
+
+# Evaluarea Modelelor de Limbaj (LLM)
+
+Modelele de limbaj (LLM) au devenit o componentă esențială în dezvoltarea aplicațiilor moderne. Evaluarea acestora este crucială pentru a asigura calitatea și performanța în scenarii reale.
+
+## De ce este importantă evaluarea LLM?
+
+Evaluarea modelelor de limbaj ne ajută să:
+
+- Măsurăm acuratețea răspunsurilor
+- Identificăm bias-urile și limitările
+- Optimizăm performanța
+- Validăm securitatea
+
+## Metode de evaluare
+
+1. **Evaluare automată**
+
+   - Metrici de acuratețe
+   - Teste de benchmark
+   - Evaluare de performanță
+
+2. **Evaluare umană**
+   - Feedback de la utilizatori
+   - Analiza calității răspunsurilor
+   - Verificarea relevanței
+
+## Instrumente de evaluare
+
+Există diverse instrumente și framework-uri pentru evaluarea LLM:
+
+- HumanEval
+- MMLU
+- HELM
+- AlpacaEval
 
 <HighwayJourney />
