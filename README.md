@@ -1,41 +1,39 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fleerob%2Fsite)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcatalin-stroe%2Fsite)
 
-# site
+# Personal Website
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Deployment**: [Vercel](https://vercel.com)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com)
-- **Analytics**: [Vercel Analytics](https://vercel.com/analytics)
 
 ## Running Locally
 
 This application requires Node.js v18.17+.
 
 ```bash
-git clone https://github.com/leerob/site.git
+git clone https://github.com/catalin-stroe/site.git
 cd site
 pnpm install
-pnpm run delete # Remove all of my notes
 pnpm dev
 ```
 
-## Database (Optional)
+## Docker Support
 
-Create a `.env.local` file with your `POSTGRES_URL` environment variable to store redirects.
+Build and run the application using Docker:
 
-```sql
-CREATE TABLE redirects (
-  id SERIAL PRIMARY KEY,
-  source VARCHAR(255) NOT NULL,
-  destination VARCHAR(255) NOT NULL,
-  permanent BOOLEAN NOT NULL
-);
+```bash
+# Build the Docker image
+docker build -t catalin-site .
+
+# Run the container
+docker run -p 3000:3000 catalin-site
 ```
 
-## License
+## License & Credits
 
-1. You are free to use this code as inspiration.
-2. Please do not copy it directly.
-3. Crediting the author is appreciated.
+1. This project is based on [Lee Robinson's](https://github.com/leerob) personal website template.
+2. You are free to use this code as inspiration.
+3. Please do not copy it directly.
+4. Crediting both the original author (Lee Robinson) and current maintainer (Catalin Stroe) is appreciated.
 
-Please remove all of my personal information by running `pnpm run delete`.
+Please remove all of my personal information by running `
