@@ -17,6 +17,7 @@
     "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "flubber": "^0.4.2",
     "lucide-react": "^0.511.0",
     "motion": "^12.12.1",
     "next": "15.3.0",
@@ -28,6 +29,7 @@
     "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {
+    "@types/flubber": "^0.4.0",
     "@types/node": "^22.14.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.2",
