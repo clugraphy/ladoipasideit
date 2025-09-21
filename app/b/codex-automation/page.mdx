@@ -1,0 +1,91 @@
+import { AnimatedName } from "../components/animated-name.tsx";
+import { BlogMeta } from "../components/BlogComponents";
+
+export const metadata = {
+  title: "Devlog #3 – Cum mi-am automatizat publicarea devlog-ului direct din Codex",
+  date: "2025-05-28",
+  author: "Alexandru Cătălin Stroe",
+  tags: ["devlog", "automation", "workflow", "codex", "writing"],
+};
+
+<BlogMeta {...metadata} />
+
+<AnimatedName />
+
+# Devlog #3 – Cum mi-am automatizat publicarea devlog-ului direct din Codex
+
+Până acum câteva săptămâni, fiecare postare din devlog însemna același ritual obositor: scriam textul în Codex, copiam totul într-un fișier MDX, adăugam manual metadatele, verificam structura, făceam commit și abia apoi publicam. Am decis că dacă vreau să scriu constant, trebuie să **automatizez**.
+
+## Context: de la text brut la postare publicată
+
+Îmi place să folosesc Codex pentru a-mi gândi ideile. Practic, aici îmi pun întrebările, definesc structura și îmi editez gândurile. Problema era trecerea de la conversație la blog. Aveam nevoie de:
+
+- un mod rapid de a genera scheletul MDX;
+- un mecanism care să îmi adauge automat titlul, data și tag-urile;
+- un push în repository fără să mă plimb prin prea multe comenzi repetitive.
+
+## Schema generală a pipeline-ului
+
+După câteva seri de experimentat, workflow-ul arată așa:
+
+1. Scriu articolul în Codex și termin cu un mic prompt care îmi întoarce structura finală.
+2. Copiez răspunsul într-un mesaj marcat cu `<!-- publish -->`.
+3. Un script local citește tot ce este între marcaje și construiește fișierul din `app/b/<slug>/page.mdx`.
+4. Scriptul face commit, împinge modificările și pornește build-ul în Vercel.
+
+Totul durează sub un minut, iar eu îmi păstrez energia pentru conținut, nu pentru mutat fișiere.
+
+## Pasul 1 – Template-ul MDX generat chiar în Codex
+
+Am creat un prompt sablon pe care îl rulez la finalul fiecărei sesiuni:
+
+```
+Returnează-mi articolul în format MDX cu următoarele secțiuni: titlu (nivel 1), subtitluri (nivel 2), listă cu pașii, cod (dacă există) și concluzie. Include și un rezumat în primele două paragrafe.
+```
+
+Răspunsul vine deja structurat cu titluri, bullet-uri și paragrafe bine delimitate. Tot ce mai fac este să adaug tag-urile potrivite și data curentă chiar în mesajul final.
+
+## Pasul 2 – Scriptul de conversie și commit
+
+Am scris un mic script Node care caută marker-ul `<!-- publish -->`, parsează metadata și generează fișierul MDX. Pe scurt, face următoarele:
+
+- creează folderul cu slug-ul corect (ex: `codex-automation`);
+- inserează automat liniile cu `import { AnimatedName }...` și `<BlogMeta {...metadata} />`;
+- normalizează diacriticele și spațiile din conținut;
+- rulează `pnpm format` ca să păstrez stilul consistent;
+- face commit cu mesajul "Add new devlog from Codex".
+
+Nu mai ating manual fișierul decât dacă vreau să adaug ceva extra.
+
+## Pasul 3 – Traseul până la publicare
+
+Am legat totul de un alias shell: `dlp` (de la devlog publish). Când îl rulez:
+
+```bash
+dlp "Devlog #3 – Cum mi-am automatizat publicarea devlog-ului direct din Codex"
+```
+
+alias-ul pornește scriptul, iar GitHub Actions preia ștafeta imediat după push. Am o acțiune simplă care rulează `pnpm build` și, dacă totul e ok, Vercel primește trigger-ul de redeploy.
+
+Rezultatul? Între ultimul paragraf scris în Codex și postarea live trec cam două minute.
+
+## Beneficiile resimțite după primele rulări
+
+- **Consecvență** – nu mai am scuze că îmi ia prea mult să public.
+- **Structură repetabilă** – fiecare articol păstrează același format, cu importuri și metadata corectă.
+- **Versiuni curate** – commit-urile sunt standardizate, iar istoricul e ușor de urmărit.
+- **Spațiu mental** – îmi consum creativitatea pe idei, nu pe pași logistici.
+
+## Ce urmează să îmbunătățesc
+
+> Automatizarea nu e niciodată “gata”. E doar într-o versiune suficient de bună încât să te lase să lucrezi la următorul nivel.
+
+În continuare vreau să:
+
+- adaug o secțiune de `changelog` generată automat în josul fiecărei postări;
+- trimit notificări în Discord când apare un devlog nou;
+- salvez în Notion un snapshot cu rezumatul fiecărui articol.
+
+Pe scurt, îmi place să construiesc sisteme care mă ajută să rămân prezent în procesul creativ. Codex e editorul meu preferat, iar acum e și lansatorul direct către blog.
+
+Ne auzim în devlog-ul următor!
